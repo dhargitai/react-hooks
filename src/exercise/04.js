@@ -1,7 +1,7 @@
 // useState: tic tac toe
 // http://localhost:3000/isolated/exercise/04.js
 
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useLocalStorageState} from '../utils'
 
 function Board({squares, setSquares}) {
@@ -48,20 +48,17 @@ function Board({squares, setSquares}) {
 }
 
 function Game() {
-  const [currentGame, setCurrentGame] = useLocalStorageState(
-    'currentGame',
-    Array(9).fill(null),
-  )
+  const [currentStep, setCurrentStep] = useLocalStorageState('currentStep', 0)
   const [history, setHistory] = useLocalStorageState('history', [
     Array(9).fill(null),
   ])
 
-  const winner = calculateWinner(currentGame)
-  const nextValue = calculateNextValue(currentGame)
-  const status = calculateStatus(winner, currentGame, nextValue)
+  const winner = calculateWinner(history[currentStep])
+  const nextValue = calculateNextValue(history[currentStep])
+  const status = calculateStatus(winner, history[currentStep], nextValue)
 
   function restart() {
-    setCurrentGame(Array(9).fill(null))
+    setCurrentStep(0)
     setHistory([Array(9).fill(null)])
   }
 
@@ -70,13 +67,13 @@ function Game() {
       <div className="game-board">
         <div className="status">{status}</div>
         <Board
-          squares={currentGame}
+          squares={history[currentStep]}
           setSquares={squares => {
             setHistory([
               ...history.slice(0, squares.filter(e => e).length),
               squares,
             ])
-            setCurrentGame(squares)
+            setCurrentStep(currentStep + 1)
           }}
         />
 
@@ -87,27 +84,27 @@ function Game() {
 
       <History
         history={history}
-        currentGame={currentGame}
-        setCurrentGame={setCurrentGame}
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
       />
     </div>
   )
 }
 
-function History({history, currentGame, setCurrentGame}) {
+function History({history, currentStep, setCurrentStep}) {
   return (
     <ul className="history">
       {history.map((historyElement, step) => (
         <li
           key={historyElement.filter(e => e).length}
           onClick={event => {
-            setCurrentGame(historyElement)
+            setCurrentStep(step)
           }}
           style={{
             display: 'flex',
             alignItems: 'center',
             height: 60,
-            color: historyElement === currentGame ? 'blue' : 'black',
+            color: step === currentStep ? 'blue' : 'black',
           }}
         >
           <div style={{transform: 'scale(0.5)'}}>
@@ -115,11 +112,9 @@ function History({history, currentGame, setCurrentGame}) {
           </div>
           <span>
             {step === 0
-              ? `${historyElement !== currentGame ? 'Go to ' : ''}game start`
-              : `${
-                  historyElement !== currentGame ? 'Go to ' : ''
-                }step #${step}`}
-            {historyElement === currentGame && <> (current)</>}
+              ? `${step !== currentStep ? 'Go to ' : ''}game start`
+              : `${step !== currentStep ? 'Go to ' : ''}step #${step}`}
+            {step === currentStep && <> (current)</>}
           </span>
         </li>
       ))}
