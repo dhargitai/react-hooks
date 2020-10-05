@@ -18,35 +18,30 @@ function PokemonInfo({pokemonName}) {
 
   useEffect(() => {
     setState({
-      ...state,
       error: null,
       pokemon: null,
     })
 
     if (!pokemonName) {
       setState({
-        ...state,
         status: 'idle',
       })
       return
     }
 
     setState({
-      ...state,
       status: 'pending',
     })
 
     fetchPokemon(pokemonName)
       .then(pokemon => {
         setState({
-          ...state,
           pokemon,
           status: 'resolved',
         })
       })
       .catch(error => {
         setState({
-          ...state,
           error,
           status: 'rejected',
         })
