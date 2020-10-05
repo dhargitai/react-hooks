@@ -121,6 +121,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "emzoumpo",
+      "name": "Emmanouil Zoumpoulakis",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2103443?v=4",
+      "profile": "https://github.com/emzoumpo",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Aprillion",
+      "name": "Peter Hozák",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1087670?v=4",
+      "profile": "http://peter.hozak.info/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
