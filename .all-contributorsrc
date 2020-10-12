@@ -139,6 +139,60 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "timobleeker",
+      "name": "Timo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2723586?v=4",
+      "profile": "https://github.com/timobleeker",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "thacherhussain",
+      "name": "Thacher Hussain",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12368025?v=4",
+      "profile": "http://thacher.co",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jmagrippis",
+      "name": "Johnny Magrippis",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3502800?v=4",
+      "profile": "https://magrippis.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "apolakipso",
+      "name": "Apola Kipso",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/494674?v=4",
+      "profile": "https://twitter.com/apolakipso",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Snaptags",
+      "name": "Markus Lasermann",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1249745?v=4",
+      "profile": "https://github.com/Snaptags",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "degeens",
+      "name": "Stijn Geens",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33414262?v=4",
+      "profile": "https://github.com/degeens",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
